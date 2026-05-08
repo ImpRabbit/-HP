@@ -13,32 +13,45 @@
   --dark:#080604;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
   min-height:100vh;
   color:var(--cream);
   background:var(--dark);
-  font-family:"Times New Roman","Noto Serif JP","Noto Serif SC",serif;
+  font-family:
+  "Times New Roman",
+  "Noto Serif JP",
+  "Noto Serif SC",
+  serif;
   overflow-x:hidden;
 }
+
+/* ===== 背景 ===== */
 
 .bg{
   position:fixed;
   inset:0;
   z-index:-3;
+
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-  transition:background-image 1s ease-in-out;
+
+  transition:
+  background-image 1s ease-in-out;
 }
 
 .shade{
   position:fixed;
   inset:0;
   z-index:-2;
-  background:linear-gradient(
+
+  background:
+  linear-gradient(
     90deg,
     rgba(0,0,0,.62),
     rgba(0,0,0,.84) 34%,
@@ -51,110 +64,189 @@ body{
   position:fixed;
   inset:0;
   z-index:-1;
+
   pointer-events:none;
+
   background:
     radial-gradient(circle at 72% 15%, rgba(245,210,120,.25), transparent 8%),
     radial-gradient(circle at 85% 30%, rgba(245,210,120,.18), transparent 7%),
     radial-gradient(circle at 78% 72%, rgba(245,210,120,.18), transparent 9%);
 }
 
+/* ===== layout ===== */
+
 .page{
   width:min(760px,92vw);
+
   margin:0 auto;
+
   min-height:100vh;
+
   padding:42px 0 34px;
 }
 
 .lang-label{
   text-align:center;
+
   color:var(--gold2);
+
   letter-spacing:.22em;
+
   font-size:.82rem;
+
   margin-bottom:16px;
 }
 
 .langs{
   display:grid;
+
   grid-template-columns:repeat(3,1fr);
+
   gap:14px;
+
   margin-bottom:58px;
 }
 
 .langs button{
+
   background:rgba(0,0,0,.34);
-  border:1px solid rgba(245,223,155,.58);
+
+  border:
+  1px solid rgba(245,223,155,.58);
+
   color:var(--cream);
+
   padding:16px 10px;
+
   font-size:1rem;
+
   letter-spacing:.12em;
+
   cursor:pointer;
+
   font-family:inherit;
 }
 
 .langs button.active,
 .langs button:hover{
-  background:rgba(132,12,13,.78);
-  box-shadow:0 0 18px rgba(245,210,120,.18);
+
+  background:
+  rgba(132,12,13,.78);
+
+  box-shadow:
+  0 0 18px rgba(245,210,120,.18);
 }
 
 .name{
   text-align:center;
+
   font-size:3.2rem;
+
   line-height:1.1;
+
   color:var(--gold2);
-  text-shadow:0 0 18px rgba(245,210,120,.45);
+
+  text-shadow:
+  0 0 18px rgba(245,210,120,.45);
+
   margin-bottom:20px;
 }
 
 .line{
   display:flex;
+
   align-items:center;
+
   gap:16px;
+
   margin:0 auto 26px;
+
   color:var(--gold);
 }
 
 .line::before,
 .line::after{
   content:"";
+
   height:1px;
+
   flex:1;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
 }
 
 .intro{
   text-align:center;
+
   line-height:2;
-  margin-bottom:34px;
+
+  margin-bottom:24px;
+
   font-size:1.05rem;
 }
 
-.profile-text{
+/* ===== 自己紹介 ===== */
+
+.profile-box{
+
+  background:
+  rgba(0,0,0,.38);
+
+  border:
+  1px solid rgba(245,223,155,.35);
+
+  padding:24px;
+
   line-height:2;
-  margin:0 auto 42px;
-  padding:22px 24px;
-  background:rgba(0,0,0,.38);
-  border:1px solid rgba(245,223,155,.35);
-  font-size:1rem;
+
+  margin-bottom:42px;
+
+  font-size:.98rem;
 }
 
+/* ===== section ===== */
+
 .section-title{
+
   display:flex;
+
   align-items:center;
+
   gap:16px;
+
   color:var(--gold2);
+
   letter-spacing:.22em;
+
   justify-content:center;
+
   margin-bottom:18px;
 }
 
 .section-title::before,
 .section-title::after{
   content:"";
+
   height:1px;
+
   width:150px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
 }
+
+/* ===== links ===== */
 
 .links{
   display:grid;
@@ -162,24 +254,43 @@ body{
 }
 
 .link-card{
+
   display:grid;
-  grid-template-columns:42px 1fr 22px;
+
+  grid-template-columns:
+  42px 1fr 22px;
+
   align-items:center;
+
   gap:14px;
+
   padding:14px 16px;
-  background:rgba(0,0,0,.42);
-  border:1px solid rgba(245,223,155,.45);
+
+  background:
+  rgba(0,0,0,.42);
+
+  border:
+  1px solid rgba(245,223,155,.45);
+
   color:var(--cream);
+
   text-decoration:none;
+
   position:relative;
+
   z-index:10;
+
   cursor:pointer;
-  -webkit-tap-highlight-color:rgba(245,223,155,.25);
+
+  -webkit-tap-highlight-color:
+  rgba(245,223,155,.25);
+
   touch-action:manipulation;
 }
 
 .link-card:hover{
-  background:rgba(110,20,14,.42);
+  background:
+  rgba(110,20,14,.42);
 }
 
 .icon{
@@ -202,231 +313,455 @@ body{
   font-size:1.4rem;
 }
 
+/* ===== credit ===== */
+
 .credit{
+
   margin-top:58px;
+
   padding-top:26px;
-  border-top:1px solid rgba(245,223,155,.28);
+
+  border-top:
+  1px solid rgba(245,223,155,.28);
+
   text-align:center;
+
   line-height:2;
+
   font-size:.92rem;
 }
 
 .credit-title{
+
   color:var(--gold2);
+
   letter-spacing:.22em;
+
   margin-bottom:12px;
 }
 
 .note{
+
   margin-top:10px;
+
   opacity:.82;
+
   font-size:.86rem;
 }
 
+/* ===== mobile ===== */
+
 @media(max-width:760px){
-  .shade{ background:rgba(0,0,0,.72); }
-  .page{ padding-top:28px; }
-  .langs{ grid-template-columns:1fr; margin-bottom:42px; }
-  .name{ font-size:2.35rem; }
+
+  .shade{
+    background:rgba(0,0,0,.72);
+  }
+
+  .page{
+    padding-top:28px;
+  }
+
+  .langs{
+    grid-template-columns:1fr;
+    margin-bottom:42px;
+  }
+
+  .name{
+    font-size:2.35rem;
+  }
+
   .section-title::before,
-  .section-title::after{ width:70px; }
+  .section-title::after{
+    width:70px;
+  }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <div class="bg" id="bg"></div>
+
 <div class="shade"></div>
 <div class="sparkle"></div>
 
 <main class="page">
 
-  <div class="lang-label" id="langLabel">→ SELECT LANGUAGE ←</div>
+<div class="lang-label" id="langLabel">
+→ SELECT LANGUAGE ←
+</div>
 
-  <div class="langs">
-    <button id="btn-jp" onclick="setLang('jp')">日本語</button>
-    <button id="btn-en" onclick="setLang('en')">ENGLISH</button>
-    <button id="btn-cn" onclick="setLang('cn')">中文</button>
-  </div>
+<div class="langs">
 
-  <h1 class="name" id="name"></h1>
-  <div class="line">✦</div>
+<button id="btn-jp" onclick="setLang('jp')">
+日本語
+</button>
 
-  <div class="intro" id="intro"></div>
-  <div class="profile-text" id="profileText"></div>
+<button id="btn-en" onclick="setLang('en')">
+ENGLISH
+</button>
 
-  <div class="section-title" id="linksTitle">LINKS</div>
-  <div class="links" id="links"></div>
+<button id="btn-cn" onclick="setLang('cn')">
+中文
+</button>
 
-  <section class="credit">
-    <div class="credit-title" id="creditTitle"></div>
-    <div id="creditText"></div>
-    <div class="note" id="noteText"></div>
-  </section>
+</div>
+
+<h1 class="name" id="name"></h1>
+
+<div class="line">✦</div>
+
+<div class="intro" id="intro"></div>
+
+<div class="profile-box" id="profileText"></div>
+
+<div class="section-title" id="linksTitle">
+LINKS
+</div>
+
+<div class="links" id="links"></div>
+
+<section class="credit">
+
+<div class="credit-title" id="creditTitle"></div>
+
+<div id="creditText"></div>
+
+<div class="note" id="noteText"></div>
+
+</section>
 
 </main>
 
 <script>
+
+/* ===== 言語 ===== */
+
 const data = {
-  jp:{
-    htmlLang:"ja",
-    langLabel:"→ SELECT LANGUAGE ←",
-    name:"いぶヌカヅキ",
-    intro:"OP / 二次創作 / 小説 / 創作関連アカウント。<br>日本語・English・中文 OK ✨<br>現在イラスト練習中。",
-    profileText:`
-      いぶヌカヅキと申します。<br>
-      🌋✨❄の三人なら受けでも攻めでもどちらでも平気です。<br>
-      この三人以外のCPはあまり書きません。苦手というわけではないですが、この三人が一番好きなのです。<br>
-      地雷はほぼありません。マニアックなもの、グロ、リバなど雑食です。<br>
-      バッドエンドは読めないこともないですが、ハッピーエンド大好きです。<br>
-      メリーバッドエンドも好みです。
-    `,
-    linksTitle:"LINKS",
-    creditTitle:"CREDIT",
-    creditText:`
-      <div>赤の背景の✨イラスト：@amanoiwato1123</div>
-      <div>王冠をかぶったSDの✨イラスト：@mojing___</div>
-    `,
-    noteText:"※掲載イラストの無断転載・無断使用は禁止です。",
-    links:[
-      ["🔞","🔞用アカウント","https://x.com/iburigakosample?s=21"],
-      ["👤","メインアカウント","https://x.com/t86zj5v6?s=21"],
-      ["❄","❄受けアカウント","https://x.com/cclxspegkf52207?s=21"],
-      ["✨","✨受けアカウント","https://x.com/ibunukazukibruk?s=21"],
-      ["📖","小説置き場（privatter）","https://privatter.me/user/T86zJ5v6"],
-      ["💬","匿名質問箱（mond）","https://mond.how/ja/ibunukazukibruk"],
-      ["💌","匿名質問箱（マシュマロ）","https://marshmallow-qa.com/fyp9jx8wjpxcq6l"]
-    ]
-  },
 
-  en:{
-    htmlLang:"en",
-    langLabel:"→ SELECT LANGUAGE ←",
-    name:"Ibu Nukazuki",
-    intro:"OP / Fan works / Novels / Creative account.<br>Japanese, English, and Chinese are OK ✨<br>Currently practicing illustration.",
-    profileText:`
-      My name is Ibu Nukazuki.<br>
-      For the trio 🌋✨❄, I am fine with any of them being either top or bottom.<br>
-      I do not often write CPs outside of these three. It is not that I dislike other pairings, but these three are my favorites.<br>
-      I have almost no strong dislikes. I enjoy a wide range of things, including niche themes, gore, and reversible pairings.<br>
-      I can read bad endings sometimes, but I love happy endings.<br>
-      I also like bittersweet endings.
-    `,
-    linksTitle:"LINKS",
-    creditTitle:"CREDIT",
-    creditText:`
-      <div>Illustration with the red background: @amanoiwato1123</div>
-      <div>SD illustration with the crown: @mojing___</div>
-    `,
-    noteText:"Unauthorized reposting or use of the displayed illustrations is prohibited.",
-    links:[
-      ["🔞","🔞 Account","https://x.com/iburigakosample?s=21"],
-      ["👤","Main Account","https://x.com/t86zj5v6?s=21"],
-      ["❄","❄ Bottom Account","https://x.com/cclxspegkf52207?s=21"],
-      ["✨","✨ Bottom Account","https://x.com/ibunukazukibruk?s=21"],
-      ["📖","Novel Archive (privatter)","https://privatter.me/user/T86zJ5v6"],
-      ["💬","Anonymous Questions (mond)","https://mond.how/ja/ibunukazukibruk"],
-      ["💌","Anonymous Questions (Marshmallow)","https://marshmallow-qa.com/fyp9jx8wjpxcq6l"]
-    ]
-  },
+jp:{
 
-  cn:{
-    htmlLang:"zh-CN",
-    langLabel:"→ SELECT LANGUAGE ←",
-    name:"いぶヌカヅキ",
-    intro:"OP / 二次创作 / 小说 / 创作相关账号。<br>日语、English、中文 OK ✨<br>目前正在练习画画。",
-    profileText:`
-      我是いぶヌカヅキ。<br>
-      如果是🌋✨❄这三个人的话，无论谁是受还是攻我都可以。<br>
-      除了这三个人以外的CP我不太常写。并不是讨厌其他CP，只是最喜欢这三个人。<br>
-      我几乎没有雷点。比较冷门的题材、血腥、互攻互受等我都能接受。<br>
-      Bad End也不是完全不能看，但我非常喜欢Happy End。<br>
-      Merry Bad End我也很喜欢。
-    `,
-    linksTitle:"LINKS",
-    creditTitle:"CREDIT",
-    creditText:`
-      <div>红色背景的✨插画：@amanoiwato1123</div>
-      <div>戴王冠的SD✨插画：@mojing___</div>
-    `,
-    noteText:"※禁止擅自转载或使用本页面展示的插画。",
-    links:[
-      ["🔞","🔞账号","https://x.com/iburigakosample?s=21"],
-      ["👤","主账号","https://x.com/t86zj5v6?s=21"],
-      ["❄","❄受账号","https://x.com/cclxspegkf52207?s=21"],
-      ["✨","✨受账号","https://x.com/ibunukazukibruk?s=21"],
-      ["📖","小说存放处（privatter）","https://privatter.me/user/T86zJ5v6"],
-      ["💬","匿名提问箱（mond）","https://mond.how/ja/ibunukazukibruk"],
-      ["💌","匿名提问箱（Marshmallow）","https://marshmallow-qa.com/fyp9jx8wjpxcq6l"]
-    ]
-  }
+htmlLang:"ja",
+
+langLabel:"→ SELECT LANGUAGE ←",
+
+name:"いぶヌカヅキ",
+
+intro:
+"OP / 二次創作 / 小説 / 創作関連アカウント。<br>日本語・English・中文 OK ✨<br>現在イラスト練習中。",
+
+profileText:`
+いぶヌカヅキと申します。<br>
+
+🌋✨❄の三人なら受けでも攻めでもどちらでも平気です。<br>
+
+この三人以外のCPはあまり書きません。苦手というわけではないですが、この三人が一番好きなのです。<br>
+
+地雷はほぼありません。マニアックなもの、グロ、リバなど雑食です。<br>
+
+バッドエンドは読めないこともないですが、ハッピーエンド大好きです。<br>
+
+メリーバッドエンドも好みです。<br><br>
+
+✨受けのアカウントでは✨受けの話、❄受けのアカウントでは❄受けの話しかしないので安心してください。<br><br>
+
+🔞のアカウントのフォロー申請を承認する条件は<br>
+
+①プロフィールに年齢表記がしてあること<br>
+
+②✨受けのアカウントのフォロワーであること<br>
+
+です。
+`,
+
+linksTitle:"LINKS",
+
+creditTitle:"CREDIT",
+
+creditText:`
+<div>赤の背景の✨イラスト：@amanoiwato1123</div>
+<div>王冠をかぶったSDの✨イラスト：@mojing___</div>
+`,
+
+noteText:
+"※掲載イラストの無断転載・無断使用は禁止です。",
+
+links:[
+
+["🔞","✨受け🔞用アカウント","https://x.com/iburigakosample?s=21"],
+
+["👤","メインアカウント","https://x.com/t86zj5v6?s=21"],
+
+["❄","❄受けアカウント","https://x.com/cclxspegkf52207?s=21"],
+
+["✨","✨受けアカウント","https://x.com/ibunukazukibruk?s=21"],
+
+["📖","小説置き場（privatter）","https://privatter.me/user/T86zJ5v6"],
+
+["💬","匿名質問箱（mond）","https://mond.how/ja/ibunukazukibruk"],
+
+["💌","匿名質問箱（マシュマロ）","https://marshmallow-qa.com/fyp9jx8wjpxcq6l"]
+
+]
+
+},
+
+en:{
+
+htmlLang:"en",
+
+langLabel:"→ SELECT LANGUAGE ←",
+
+name:"Ibu Nukazuki",
+
+intro:
+"OP / Fan works / Novels / Creative account.<br>Japanese, English, and Chinese are OK ✨<br>Currently practicing illustration.",
+
+profileText:`
+My name is Ibu Nukazuki.<br>
+
+For the trio 🌋✨❄, I am fine with any of them being either top or bottom.<br>
+
+I do not often write pairings outside of these three. It is not because I dislike them, but simply because these three are my favorites.<br>
+
+I have very few dislikes. I enjoy niche themes, gore, reversible pairings, and many other things.<br>
+
+I can read bad endings, but I especially love happy endings.<br>
+
+I also enjoy bittersweet endings.<br><br>
+
+Please do not worry — the ✨ account only posts ✨ bottom content, and the ❄ account only posts ❄ bottom content.<br><br>
+
+The conditions for approving follow requests to the 🔞 account are:<br>
+
+① Your age must be written in your profile.<br>
+
+② You must follow the ✨ account.
+`,
+
+linksTitle:"LINKS",
+
+creditTitle:"CREDIT",
+
+creditText:`
+<div>Illustration with the red background: @amanoiwato1123</div>
+<div>SD illustration with the crown: @mojing___</div>
+`,
+
+noteText:
+"Unauthorized reposting or use of the displayed illustrations is prohibited.",
+
+links:[
+
+["🔞","✨ Bottom 🔞 Account","https://x.com/iburigakosample?s=21"],
+
+["👤","Main Account","https://x.com/t86zj5v6?s=21"],
+
+["❄","❄ Bottom Account","https://x.com/cclxspegkf52207?s=21"],
+
+["✨","✨ Bottom Account","https://x.com/ibunukazukibruk?s=21"],
+
+["📖","Novel Archive (privatter)","https://privatter.me/user/T86zJ5v6"],
+
+["💬","Anonymous Questions (mond)","https://mond.how/ja/ibunukazukibruk"],
+
+["💌","Anonymous Questions (Marshmallow)","https://marshmallow-qa.com/fyp9jx8wjpxcq6l"]
+
+]
+
+},
+
+cn:{
+
+htmlLang:"zh-CN",
+
+langLabel:"→ SELECT LANGUAGE ←",
+
+name:"いぶヌカヅキ",
+
+intro:
+"OP / 二次创作 / 小说 / 创作相关账号。<br>日语、English、中文 OK ✨<br>目前正在练习画画。",
+
+profileText:`
+我是いぶヌカヅキ。<br>
+
+如果是🌋✨❄这三个人的话，无论谁是攻还是受我都可以。<br>
+
+除了这三个人之外的CP我不太会写。并不是讨厌其他CP，只是最喜欢这三个人。<br>
+
+我几乎没有雷点。冷门题材、血腥、互攻互受等我都能接受。<br>
+
+虽然Bad End我也能看，但我非常喜欢Happy End。<br>
+
+Merry Bad End我也很喜欢。<br><br>
+
+请放心，✨受账号只会发布✨受相关内容，❄受账号也只会发布❄受相关内容。<br><br>
+
+🔞账号通过关注申请的条件是：<br>
+
+① 个人资料中需要标注年龄。<br>
+
+② 必须关注✨受账号。
+`,
+
+linksTitle:"LINKS",
+
+creditTitle:"CREDIT",
+
+creditText:`
+<div>红色背景的✨插画：@amanoiwato1123</div>
+<div>戴王冠的SD✨插画：@mojing___</div>
+`,
+
+noteText:
+"※禁止擅自转载或使用本页面展示的插画。",
+
+links:[
+
+["🔞","✨受🔞账号","https://x.com/iburigakosample?s=21"],
+
+["👤","主账号","https://x.com/t86zj5v6?s=21"],
+
+["❄","❄受账号","https://x.com/cclxspegkf52207?s=21"],
+
+["✨","✨受账号","https://x.com/ibunukazukibruk?s=21"],
+
+["📖","小说存放处（privatter）","https://privatter.me/user/T86zJ5v6"],
+
+["💬","匿名提问箱（mond）","https://mond.how/ja/ibunukazukibruk"],
+
+["💌","匿名提问箱（Marshmallow）","https://marshmallow-qa.com/fyp9jx8wjpxcq6l"]
+
+]
+
+}
+
 };
 
 function setLang(lang){
-  const d = data[lang];
 
-  document.documentElement.lang = d.htmlLang;
-  document.getElementById("langLabel").innerHTML = d.langLabel;
-  document.getElementById("name").innerHTML = d.name;
-  document.getElementById("intro").innerHTML = d.intro;
-  document.getElementById("profileText").innerHTML = d.profileText;
-  document.getElementById("linksTitle").innerHTML = d.linksTitle;
-  document.getElementById("creditTitle").innerHTML = d.creditTitle;
-  document.getElementById("creditText").innerHTML = d.creditText;
-  document.getElementById("noteText").innerHTML = d.noteText;
+const d = data[lang];
 
-  document.getElementById("links").innerHTML = d.links.map(item => `
-    <a
-      class="link-card"
-      href="${item[2]}"
-      target="_blank"
-      rel="noopener noreferrer"
-      onclick="window.open('${item[2]}','_blank'); return false;"
-    >
-      <div class="icon">${item[0]}</div>
-      <div>
-        <div class="link-title">${item[1]}</div>
-        <div class="link-url">${item[2]}</div>
-      </div>
-      <div class="arrow">›</div>
-    </a>
-  `).join("");
+document.documentElement.lang = d.htmlLang;
 
-  ["jp","en","cn"].forEach(x=>{
-    document.getElementById("btn-"+x).classList.toggle("active", x===lang);
-  });
+document.getElementById("langLabel")
+.innerHTML = d.langLabel;
+
+document.getElementById("name")
+.innerHTML = d.name;
+
+document.getElementById("intro")
+.innerHTML = d.intro;
+
+document.getElementById("profileText")
+.innerHTML = d.profileText;
+
+document.getElementById("linksTitle")
+.innerHTML = d.linksTitle;
+
+document.getElementById("creditTitle")
+.innerHTML = d.creditTitle;
+
+document.getElementById("creditText")
+.innerHTML = d.creditText;
+
+document.getElementById("noteText")
+.innerHTML = d.noteText;
+
+/* ===== links ===== */
+
+document.getElementById("links").innerHTML =
+d.links.map(item => `
+
+<a
+class="link-card"
+href="${item[2]}"
+target="_blank"
+rel="noopener noreferrer"
+onclick="window.open('${item[2]}','_blank'); return false;"
+>
+
+<div class="icon">
+${item[0]}
+</div>
+
+<div>
+
+<div class="link-title">
+${item[1]}
+</div>
+
+<div class="link-url">
+${item[2]}
+</div>
+
+</div>
+
+<div class="arrow">›</div>
+
+</a>
+
+`).join("");
+
+["jp","en","cn"].forEach(x=>{
+
+document.getElementById("btn-"+x)
+.classList.toggle("active", x===lang);
+
+});
+
 }
 
 setLang("jp");
 
+/* ===== 背景 ===== */
+
 const images = [
-  "IMG_0999.jpeg",
-  "IMG_1001.jpeg",
-  "IMG_1184.jpeg"
+"IMG_0999.jpeg",
+"IMG_1001.jpeg",
+"IMG_1184.jpeg"
 ];
 
-const bg = document.getElementById("bg");
+const bg =
+document.getElementById("bg");
 
-let current = Math.floor(Math.random() * images.length);
+let current =
+Math.floor(
+Math.random()*images.length
+);
 
 function setBackground(index){
-  bg.style.backgroundImage = `url("${images[index]}")`;
+
+bg.style.backgroundImage =
+`url("${images[index]}")`;
+
 }
 
 setBackground(current);
 
 function changeBg(){
-  let next;
-  do{
-    next = Math.floor(Math.random() * images.length);
-  }while(next === current);
 
-  current = next;
-  setBackground(current);
+let next;
+
+do{
+
+next =
+Math.floor(
+Math.random()*images.length
+);
+
+}while(next === current);
+
+current = next;
+
+setBackground(current);
+
 }
 
-setInterval(changeBg, 7000);
+setInterval(changeBg,7000);
+
 </script>
 
 </body>
