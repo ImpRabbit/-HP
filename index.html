@@ -11,7 +11,6 @@
   --gold2:#f5df9b;
   --cream:#fff7e8;
   --dark:#080604;
-  --glass:rgba(5,4,3,.72);
 }
 
 *{box-sizing:border-box}
@@ -25,8 +24,6 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== 背景：1枚だけ表示 ===== */
-
 .bg{
   position:fixed;
   inset:0;
@@ -37,19 +34,17 @@ body{
   transition:background-image 1s ease-in-out;
 }
 
-/* 画像を見やすくしつつ文字を読ませる暗幕 */
 .shade{
   position:fixed;
   inset:0;
   z-index:-2;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0,0,0,.62),
-      rgba(0,0,0,.84) 34%,
-      rgba(0,0,0,.86) 66%,
-      rgba(0,0,0,.62)
-    );
+  background:linear-gradient(
+    90deg,
+    rgba(0,0,0,.62),
+    rgba(0,0,0,.84) 34%,
+    rgba(0,0,0,.86) 66%,
+    rgba(0,0,0,.62)
+  );
 }
 
 .sparkle{
@@ -62,8 +57,6 @@ body{
     radial-gradient(circle at 85% 30%, rgba(245,210,120,.18), transparent 7%),
     radial-gradient(circle at 78% 72%, rgba(245,210,120,.18), transparent 9%);
 }
-
-/* ===== layout ===== */
 
 .page{
   width:min(760px,92vw);
@@ -132,8 +125,17 @@ body{
 .intro{
   text-align:center;
   line-height:2;
-  margin-bottom:42px;
+  margin-bottom:34px;
   font-size:1.05rem;
+}
+
+.profile-text{
+  line-height:2;
+  margin:0 auto 42px;
+  padding:22px 24px;
+  background:rgba(0,0,0,.38);
+  border:1px solid rgba(245,223,155,.35);
+  font-size:1rem;
 }
 
 .section-title{
@@ -169,6 +171,11 @@ body{
   border:1px solid rgba(245,223,155,.45);
   color:var(--cream);
   text-decoration:none;
+  position:relative;
+  z-index:10;
+  cursor:pointer;
+  -webkit-tap-highlight-color:rgba(245,223,155,.25);
+  touch-action:manipulation;
 }
 
 .link-card:hover{
@@ -217,27 +224,12 @@ body{
 }
 
 @media(max-width:760px){
-  .shade{
-    background:rgba(0,0,0,.72);
-  }
-
-  .page{
-    padding-top:28px;
-  }
-
-  .langs{
-    grid-template-columns:1fr;
-    margin-bottom:42px;
-  }
-
-  .name{
-    font-size:2.35rem;
-  }
-
+  .shade{ background:rgba(0,0,0,.72); }
+  .page{ padding-top:28px; }
+  .langs{ grid-template-columns:1fr; margin-bottom:42px; }
+  .name{ font-size:2.35rem; }
   .section-title::before,
-  .section-title::after{
-    width:70px;
-  }
+  .section-title::after{ width:70px; }
 }
 </style>
 </head>
@@ -262,6 +254,7 @@ body{
   <div class="line">✦</div>
 
   <div class="intro" id="intro"></div>
+  <div class="profile-text" id="profileText"></div>
 
   <div class="section-title" id="linksTitle">LINKS</div>
   <div class="links" id="links"></div>
@@ -281,6 +274,14 @@ const data = {
     langLabel:"→ SELECT LANGUAGE ←",
     name:"いぶヌカヅキ",
     intro:"OP / 二次創作 / 小説 / 創作関連アカウント。<br>日本語・English・中文 OK ✨<br>現在イラスト練習中。",
+    profileText:`
+      いぶヌカヅキと申します。<br>
+      🌋✨❄の三人なら受けでも攻めでもどちらでも平気です。<br>
+      この三人以外のCPはあまり書きません。苦手というわけではないですが、この三人が一番好きなのです。<br>
+      地雷はほぼありません。マニアックなもの、グロ、リバなど雑食です。<br>
+      バッドエンドは読めないこともないですが、ハッピーエンド大好きです。<br>
+      メリーバッドエンドも好みです。
+    `,
     linksTitle:"LINKS",
     creditTitle:"CREDIT",
     creditText:`
@@ -291,6 +292,8 @@ const data = {
     links:[
       ["🔞","🔞用アカウント","https://x.com/iburigakosample?s=21"],
       ["👤","メインアカウント","https://x.com/t86zj5v6?s=21"],
+      ["❄","❄受けアカウント","https://x.com/cclxspegkf52207?s=21"],
+      ["✨","✨受けアカウント","https://x.com/ibunukazukibruk?s=21"],
       ["📖","小説置き場（privatter）","https://privatter.me/user/T86zJ5v6"],
       ["💬","匿名質問箱（mond）","https://mond.how/ja/ibunukazukibruk"],
       ["💌","匿名質問箱（マシュマロ）","https://marshmallow-qa.com/fyp9jx8wjpxcq6l"]
@@ -302,6 +305,14 @@ const data = {
     langLabel:"→ SELECT LANGUAGE ←",
     name:"Ibu Nukazuki",
     intro:"OP / Fan works / Novels / Creative account.<br>Japanese, English, and Chinese are OK ✨<br>Currently practicing illustration.",
+    profileText:`
+      My name is Ibu Nukazuki.<br>
+      For the trio 🌋✨❄, I am fine with any of them being either top or bottom.<br>
+      I do not often write CPs outside of these three. It is not that I dislike other pairings, but these three are my favorites.<br>
+      I have almost no strong dislikes. I enjoy a wide range of things, including niche themes, gore, and reversible pairings.<br>
+      I can read bad endings sometimes, but I love happy endings.<br>
+      I also like bittersweet endings.
+    `,
     linksTitle:"LINKS",
     creditTitle:"CREDIT",
     creditText:`
@@ -312,6 +323,8 @@ const data = {
     links:[
       ["🔞","🔞 Account","https://x.com/iburigakosample?s=21"],
       ["👤","Main Account","https://x.com/t86zj5v6?s=21"],
+      ["❄","❄ Bottom Account","https://x.com/cclxspegkf52207?s=21"],
+      ["✨","✨ Bottom Account","https://x.com/ibunukazukibruk?s=21"],
       ["📖","Novel Archive (privatter)","https://privatter.me/user/T86zJ5v6"],
       ["💬","Anonymous Questions (mond)","https://mond.how/ja/ibunukazukibruk"],
       ["💌","Anonymous Questions (Marshmallow)","https://marshmallow-qa.com/fyp9jx8wjpxcq6l"]
@@ -323,6 +336,14 @@ const data = {
     langLabel:"→ SELECT LANGUAGE ←",
     name:"いぶヌカヅキ",
     intro:"OP / 二次创作 / 小说 / 创作相关账号。<br>日语、English、中文 OK ✨<br>目前正在练习画画。",
+    profileText:`
+      我是いぶヌカヅキ。<br>
+      如果是🌋✨❄这三个人的话，无论谁是受还是攻我都可以。<br>
+      除了这三个人以外的CP我不太常写。并不是讨厌其他CP，只是最喜欢这三个人。<br>
+      我几乎没有雷点。比较冷门的题材、血腥、互攻互受等我都能接受。<br>
+      Bad End也不是完全不能看，但我非常喜欢Happy End。<br>
+      Merry Bad End我也很喜欢。
+    `,
     linksTitle:"LINKS",
     creditTitle:"CREDIT",
     creditText:`
@@ -333,6 +354,8 @@ const data = {
     links:[
       ["🔞","🔞账号","https://x.com/iburigakosample?s=21"],
       ["👤","主账号","https://x.com/t86zj5v6?s=21"],
+      ["❄","❄受账号","https://x.com/cclxspegkf52207?s=21"],
+      ["✨","✨受账号","https://x.com/ibunukazukibruk?s=21"],
       ["📖","小说存放处（privatter）","https://privatter.me/user/T86zJ5v6"],
       ["💬","匿名提问箱（mond）","https://mond.how/ja/ibunukazukibruk"],
       ["💌","匿名提问箱（Marshmallow）","https://marshmallow-qa.com/fyp9jx8wjpxcq6l"]
@@ -344,17 +367,23 @@ function setLang(lang){
   const d = data[lang];
 
   document.documentElement.lang = d.htmlLang;
-
   document.getElementById("langLabel").innerHTML = d.langLabel;
   document.getElementById("name").innerHTML = d.name;
   document.getElementById("intro").innerHTML = d.intro;
+  document.getElementById("profileText").innerHTML = d.profileText;
   document.getElementById("linksTitle").innerHTML = d.linksTitle;
   document.getElementById("creditTitle").innerHTML = d.creditTitle;
   document.getElementById("creditText").innerHTML = d.creditText;
   document.getElementById("noteText").innerHTML = d.noteText;
 
   document.getElementById("links").innerHTML = d.links.map(item => `
-    <a class="link-card" href="${item[2]}" target="_blank" rel="noopener noreferrer">
+    <a
+      class="link-card"
+      href="${item[2]}"
+      target="_blank"
+      rel="noopener noreferrer"
+      onclick="window.open('${item[2]}','_blank'); return false;"
+    >
       <div class="icon">${item[0]}</div>
       <div>
         <div class="link-title">${item[1]}</div>
@@ -370,8 +399,6 @@ function setLang(lang){
 }
 
 setLang("jp");
-
-/* ===== 背景：3枚からランダムで1枚ずつ切替 ===== */
 
 const images = [
   "IMG_0999.jpeg",
@@ -391,7 +418,6 @@ setBackground(current);
 
 function changeBg(){
   let next;
-
   do{
     next = Math.floor(Math.random() * images.length);
   }while(next === current);
